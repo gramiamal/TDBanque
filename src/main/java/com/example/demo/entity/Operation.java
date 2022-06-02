@@ -13,14 +13,14 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Data
 @Entity
 @RequiredArgsConstructor
@@ -34,9 +34,10 @@ public class Operation  {
 @NonNull
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 
-private Long numeroOperation;
+public Long numeroOperation;
 
-private Date dateOperation; private double montant;
+private Date dateOperation;
+private double montant;
 
 @ManyToOne
 
@@ -46,5 +47,53 @@ private Date dateOperation; private double montant;
 
 @JoinColumn(name="Code_Employe") 
 private Employes employe ;
+
+
+
+
+
+public Operation() {
+    super();
+}
+
+public Operation(Date dateOperation, double montant, Compte compte) {
+    this.dateOperation = dateOperation;
+    this.montant = montant;
+    this.compte = compte;
+}
+
+public Long getnumeroOperation() {
+    return numeroOperation;
+}
+
+public void setnumeroOperation(Long numero) {
+    this.numeroOperation = numero;
+}
+
+public Date getDateOperation() {
+    return dateOperation;
+}
+
+public void setDateOperation(Date dateOperation) {
+    this.dateOperation = dateOperation;
+}
+
+public double getMontant() {
+    return montant;
+}
+
+public void setMontant(double montant) {
+    this.montant = montant;
+}
+
+public Compte getCompte() {
+    return compte;
+}
+
+public void setCompte(Compte compte) {
+    this.compte = compte;
+}
+
+
 }
 

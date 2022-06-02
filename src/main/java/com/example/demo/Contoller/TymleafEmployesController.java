@@ -24,7 +24,7 @@ public class TymleafEmployesController {
 	        return  "addclient" ;	
 		
 		}
-		 @PostMapping("/save")
+		 @PostMapping("/save_client")
 		    public String save_client(@ModelAttribute Client c) {
 		       
 			 clientservice.saveClient(c);
